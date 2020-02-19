@@ -28,7 +28,7 @@ jobs:
           at: ~/packer
       - run:
           name: Create var.json
-          command: echo { "aws_region" ":" "$AWS_REGION" "," "aws_access_key" ":" "$AWS_ACCESS_KEY" "," "aws_secret_key" ":" "$AWS_SECRET_KEY" "," "subnet_id" ":" "$SUBNET_ID" "," "source_ami" ":" "$SOURCE_AMI" "," "ami_users" ":" "$AMI_USERS" "," "ssh_username" ":" "$SSH_USERNAME" } >> var.json
+          command: echo { "aws_region" ":" "$AWS_DEFAULT_REGION" "," "aws_access_key" ":" "$AWS_ACCESS_KEY_ID" "," "aws_secret_key" ":" "$AWS_SECRET_ACCESS_KEY" "," "subnet_id" ":" "$SUB_NET_ID" "," "source_ami" ":" "$SOURCE_AMI" "," "ami_users" ":" "$AMI_USERS" "," "ssh_username" ":" "$SSH_USERNAME" } >> var.json
       - run:
           name: Show var.json
           command: cat var.json
