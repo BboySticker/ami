@@ -8,6 +8,7 @@
         "ssh_username": "",
         "ami_users":""
     },
+
     "builders": [
         {
             "type": "amazon-ebs",
