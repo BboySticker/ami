@@ -2,8 +2,8 @@
 
 ## Install Packer
 
-[Packer] (https://github.com/hashicorp/packer)
-[Packer Download] (https://packer.io/downloads.html)
+###### [Packer] (https://github.com/hashicorp/packer)
+###### [Packer Download] (https://packer.io/downloads.html)
 
 ## Validate Template
 
@@ -11,10 +11,12 @@
 
 ## Build AMI
 
-`packer build \
+```
+packer build \
     -var 'aws_access_key=REDACTED' \
     -var 'aws_secret_key=REDACTED' \
     -var 'aws_region=REDACTED' \
     -var 'subnet_id=REDACTED' \
-    ubuntu-ami.json`
+    ubuntu-ami.json
+```
 
