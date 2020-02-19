@@ -1,14 +1,20 @@
-Packer: https://github.com/hashicorp/packer
+# AWS AMI for CSYE6225
 
-# Download Packer
+## Install Packer
 
-https://packer.io/downloads.html
+[Packer] (https://github.com/hashicorp/packer)
+[Packer Download] (https://packer.io/downloads.html)
 
-# Create template
+## Validate Template
 
-Template tells Packer what platforms to build images for and how you want to build them. 
+`packer validate ubuntu-ami.json`
 
-e.g.
-    
+## Build AMI
 
-# Build the image
+`packer build \
+    -var 'aws_access_key=REDACTED' \
+    -var 'aws_secret_key=REDACTED' \
+    -var 'aws_region=REDACTED' \
+    -var 'subnet_id=REDACTED' \
+    ubuntu-ami.json`
+
