@@ -1,0 +1,48 @@
+version: 2
+jobs:
+  validate:
+    filter:
+      branch:
+        only:
+          - master
+    docker:
+      - image: hashicorp/packer:1.5.4
+    working_directory: ~/packer
+    steps:
+      - checkout
+      - run:
+          name: Validate ubuntu-ami
+          command: packer validate ./ubuntu-ami.json
+  
+  build:
+    filter:
+      branch:
+        only:
+          - master
+    docker:
+      - image: hashicorp/packer:1.5.4
+    working_directory: ~/packer
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/packer
+      - run:
+          name: Build ubuntu-ami
+          command: ./scripts/build.sh ubuntu-ami ./ubuntu-ami.json
+          no_output_timeout: 30m
+      - persist_to_workspace:
+          root: .
+          paths:
+            - manifest-ubuntu-ami.json
+      - store_artifacts:
+          path: manifest-ubuntu-ami.json
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - validate
+      - build:
+          requires:
+            - validate
+
