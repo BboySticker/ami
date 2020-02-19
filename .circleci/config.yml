@@ -40,12 +40,6 @@ jobs:
           # command: packer build -var-file=./var.json ubuntu-ami.json
           command: packer build -var aws_region=$AWS_DEFAULT_REGION -var aws_access_key=$AWS_ACCESS_KEY_ID -var aws_secret_key=$AWS_SECRET_ACCESS_KEY -var subnet_id=$SUB_NET_ID -var source_ami=$SOURCE_AMI -var ami_users=$AMI_USERS -var ssh_username=$SSH_USERNAME ubuntu-ami.json
           no_output_timeout: 30m
-      - persist_to_workspace:
-          root: .
-          paths:
-            - manifest-ubuntu-ami.json
-      - store_artifacts:
-          path: manifest-ubuntu-ami.json
 
 workflows:
   version: 2
