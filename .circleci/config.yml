@@ -29,13 +29,13 @@ jobs:
       - run:
           name: Create var.json
           command: echo "{ 
-                           "aws_region": "$AWS_REGION",
-                           "aws_access_key": "$AWS_ACCESS_KEY",
-                           "aws_secret_key": "$AWS_SECRET_KEY",
-                           "subnet_id": "$SUBNET_ID",
-                           "source_ami": "$SOURCE_AMI",
-                           "ami_users":"$AMI_USERS",
-                           "ssh_username": "$SSH_USERNAME"
+                           '"aws_region": "$AWS_REGION",'
+                           '"aws_access_key": "$AWS_ACCESS_KEY",'
+                           '"aws_secret_key": "$AWS_SECRET_KEY",'
+                           '"subnet_id": "$SUBNET_ID",'
+                           '"source_ami": "$SOURCE_AMI",'
+                           '"ami_users":"$AMI_USERS",'
+                           '"ssh_username": "$SSH_USERNAME"'
                          }" >> var.json
 
       - run:
