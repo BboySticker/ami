@@ -40,7 +40,7 @@ jobs:
 
       - run:
           name: Build ubuntu-ami
-          command: ./packer build -var-file=./var.json ./ami/ubuntu-ami.json
+          command: packer build -var-file=./var.json ./ami/ubuntu-ami.json
           no_output_timeout: 30m
       - persist_to_workspace:
           root: .
