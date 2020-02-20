@@ -5,6 +5,7 @@
 ###### [Packer] (https://github.com/hashicorp/packer)
 ###### [Packer Download] (https://packer.io/downloads.html)
 
+
 ## Validate Template
 
 `packer validate ubuntu-ami.json`
