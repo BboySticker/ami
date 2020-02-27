@@ -1,6 +1,5 @@
 # Not include sensitive infomation
-var.json
-vars.json
+var*.json
 
 # File-based project format
 *.iws
