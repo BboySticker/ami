@@ -36,13 +36,20 @@
         {
             "type": "shell",
             "environment_vars": [
-                "FOO=foo"
+                "REGION={{user `aws_region`}}"
             ],
             "inline": [
-                "sudo apt-get update",
+                "sudo apt-get update -y",
+                "sudo apt-get upgrade -y",
                 "sudo apt-get -y install default-jdk",
                 "sudo apt-get -y install tomcat8",
-                "sudo apt-get install -y tomcat8-docs tomcat8-examples tomcat8-admin"
+                "sudo apt-get install -y tomcat8-docs tomcat8-examples tomcat8-admin",
+                "sudo apt-get install -y ruby",
+                "sudo apt-get install -y wget",
+                "wget https://aws-codedeploy-$REGION.s3.$REGION.amazonaws.com/latest/install",
+                "chmod -x ./install",
+                "sudo ruby ./install auto",
+                "sudo service codedeploy-agent start"
             ]
         }
     ]
